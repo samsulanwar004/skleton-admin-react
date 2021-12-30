@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   total: 1,
   params: null,
-  selectedRoleMenu: null,
+  selected: null,
   loading: false,
   error: null,
   success: false
@@ -22,7 +22,7 @@ const rolemenus = (state = initialState, action) => {
         params: action.params
       }
     case 'GET_ROLE_MENU':
-      return { ...state, selectedRoleMenu: action.selectedRoleMenu }
+      return { ...state, selected: action.selected }
     case 'ADD_ROLE_MENU':
       return { ...state }
     case 'DELETE_ROLE_MENU':

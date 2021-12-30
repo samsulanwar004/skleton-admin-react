@@ -47,7 +47,7 @@ export const getUser = user => {
   return async dispatch => {
     dispatch({
       type: 'GET_USER',
-      selectedUser: user
+      selected: user
     })
   }
 }

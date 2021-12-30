@@ -52,7 +52,7 @@ export const getRole = role => {
   return async dispatch => {
     dispatch({
       type: 'GET_ROLE',
-      selectedRole: role
+      selected: role
     })
   }
 }

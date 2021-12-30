@@ -86,12 +86,12 @@ const UserSave = () => {
 
   useEffect(() => {
 
-    if (store.selectedUser !== null && store.selectedUser !== undefined) {
+    if (store.selected !== null && store.selected !== undefined) {
 
-      const linkLogo = `${process.env.REACT_APP_BASE_URL}${store.selectedUser.image_foto}`
+      const linkLogo = `${process.env.REACT_APP_BASE_URL}${store.selected.image_foto}`
       setLogo({...logo, link: linkLogo})
 
-      setSelectedRole(store.selectedUser.role_id)
+      setSelectedRole(store.selected.role_id)
     }
 
     dispatch(getAllDataRole())
@@ -162,7 +162,7 @@ const UserSave = () => {
     }
   }
 
-  return store.selectedUser !== null && store.selectedUser !== undefined ? (
+  return store.selected !== null && store.selected !== undefined ? (
     <Row className='app-user-edit'>
       <Col sm='12'>
         <Card>
@@ -200,7 +200,7 @@ const UserSave = () => {
                     <Input
                       id='first_name'
                       name='first_name'
-                      defaultValue={store.selectedUser.first_name}
+                      defaultValue={store.selected.first_name}
                       placeholder='Nama Depan'
                       innerRef={register({ required: true })}
                       className={classnames({
@@ -215,7 +215,7 @@ const UserSave = () => {
                     <Input
                       id='last_name'
                       name='last_name'
-                      defaultValue={store.selectedUser.last_name}
+                      defaultValue={store.selected.last_name}
                       placeholder='Nama Belakang'
                       innerRef={register({ required: false })}
                       className={classnames({
@@ -230,7 +230,7 @@ const UserSave = () => {
                     <Input
                       id='username'
                       name='username'
-                      defaultValue={store.selectedUser.username}
+                      defaultValue={store.selected.username}
                       placeholder='Username'
                       innerRef={register({ required: true })}
                       className={classnames({
@@ -245,7 +245,7 @@ const UserSave = () => {
                     <Input
                       id='email'
                       name='email'
-                      defaultValue={store.selectedUser.email}
+                      defaultValue={store.selected.email}
                       placeholder='Email'
                       innerRef={register({ required: true })}
                       className={classnames({
@@ -275,7 +275,7 @@ const UserSave = () => {
                     <Input
                       id='telepon'
                       name='telepon'
-                      defaultValue={store.selectedUser.telepon}
+                      defaultValue={store.selected.telepon}
                       placeholder='Telepon'
                       innerRef={register({ required: false })}
                       className={classnames({
@@ -327,7 +327,7 @@ const UserSave = () => {
                       name='default_language'
                       id='default_language'
                       control={control}
-                      defaultValue={store.selectedUser.default_language ?? ''}
+                      defaultValue={store.selected.default_language ?? ''}
                       invalid={data !== null && (data.default_language === undefined || data.default_language === null)}
                     >
                       <option value={''}>Select...</option>
@@ -345,7 +345,7 @@ const UserSave = () => {
                       name='status'
                       id='status'
                       control={control}
-                      defaultValue={store.selectedUser.status}
+                      defaultValue={store.selected.status}
                       invalid={data !== null && (data.status === undefined || data.status === null)}
                     >
                       <option value='A'>Active</option>

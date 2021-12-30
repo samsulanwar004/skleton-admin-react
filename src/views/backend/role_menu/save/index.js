@@ -79,15 +79,15 @@ const RoleMenuSave = () => {
 
   // ** Function to get employee on mount
   useEffect(() => {
-    if (store.selectedRoleMenu !== null && store.selectedRoleMenu !== undefined) {
+    if (store.selected !== null && store.selected !== undefined) {
       const selectMenu = {
-        value: store.selectedRoleMenu.menu_id,
-        label: store.selectedRoleMenu.menu_name
+        value: store.selected.menu_id,
+        label: store.selected.menu_name
       }
 
       const selectRole = {
-        value: store.selectedRoleMenu.role_id,
-        label: store.selectedRoleMenu.role_name
+        value: store.selected.role_id,
+        label: store.selected.role_name
       }
 
       setSelectedMenu(selectMenu)
@@ -138,7 +138,7 @@ const RoleMenuSave = () => {
     }
   }
 
-  return store.selectedRoleMenu !== null && store.selectedRoleMenu !== undefined ? (
+  return store.selected !== null && store.selected !== undefined ? (
     <Row className='app-user-edit'>
       <Col sm='12'>
         <Card>
@@ -161,7 +161,7 @@ const RoleMenuSave = () => {
                       id='role_id'
                       control={control}
                       invalid={data !== null && (data.role_id === undefined || data.role_id === null)}
-                      defaultValue={{value: store.selectedRoleMenu?.role_id, label: store.selectedRoleMenu?.role_name}}
+                      defaultValue={{value: store.selected?.role_id, label: store.selected?.role_name}}
                       render={({value, onChange}) => {
 
                         return (
@@ -195,7 +195,7 @@ const RoleMenuSave = () => {
                       id='menu_id'
                       control={control}
                       invalid={data !== null && (data.menu_id === undefined || data.menu_id === null)}
-                      defaultValue={{value: store.selectedRoleMenu?.menu_id, label: store.selectedRoleMenu?.menu_name}}
+                      defaultValue={{value: store.selected?.menu_id, label: store.selected?.menu_name}}
                       render={({value, onChange}) => {
 
                         return (
@@ -230,7 +230,7 @@ const RoleMenuSave = () => {
                       name='status'
                       id='status'
                       control={control}
-                      defaultValue={store.selectedRoleMenu.status}
+                      defaultValue={store.selected.status}
                       invalid={data !== null && (data.status === undefined || data.status === null)}
                     >
                       <option value='A'>Active</option>

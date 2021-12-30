@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   total: 1,
   params: null,
-  selectedRole: null,
+  selected: null,
   loading: false,
   error: null,
   success: false
@@ -22,7 +22,7 @@ const roles = (state = initialState, action) => {
         params: action.params
       }
     case 'GET_ROLE':
-      return { ...state, selectedRole: action.selectedRole }
+      return { ...state, selected: action.selected }
     case 'ADD_ROLE':
       return { ...state }
     case 'DELETE_ROLE':

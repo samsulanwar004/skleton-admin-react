@@ -47,7 +47,7 @@ export const getRoleMenu = rolemenu => {
   return async dispatch => {
     dispatch({
       type: 'GET_ROLE_MENU',
-      selectedRoleMenu: rolemenu
+      selected: rolemenu
     })
   }
 }

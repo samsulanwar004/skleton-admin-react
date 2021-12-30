@@ -102,7 +102,7 @@ const RoleSave = () => {
     }
   }
 
-  return store.selectedRole !== null && store.selectedRole !== undefined ? (
+  return store.selected !== null && store.selected !== undefined ? (
     <Row className='app-user-edit'>
       <Col sm='12'>
         <Card>
@@ -123,7 +123,7 @@ const RoleSave = () => {
                     <Input
                       id='role_name'
                       name='role_name'
-                      defaultValue={store.selectedRole.role_name}
+                      defaultValue={store.selected.role_name}
                       placeholder={intl.formatMessage({id: 'Name'})}
                       innerRef={register({ required: true })}
                       className={classnames({
@@ -141,7 +141,7 @@ const RoleSave = () => {
                       name='status'
                       id='status'
                       control={control}
-                      defaultValue={store.selectedRole.status}
+                      defaultValue={store.selected.status}
                       invalid={data !== null && (data.status === undefined || data.status === null)}
                     >
                       <option value='A'>Active</option>

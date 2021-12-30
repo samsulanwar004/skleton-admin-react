@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   total: 1,
   params: null,
-  selectedUser: null,
+  selected: null,
   loading: false,
   error: null,
   success: false
@@ -22,7 +22,7 @@ const users = (state = initialState, action) => {
         params: action.params
       }
     case 'GET_USER':
-      return { ...state, selectedUser: action.selectedUser }
+      return { ...state, selected: action.selected }
     case 'ADD_USER':
       return { ...state }
     case 'DELETE_USER':

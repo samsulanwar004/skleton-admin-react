@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   total: 1,
   params: null,
-  selectedMenu: null,
+  selected: null,
   loading: false,
   error: null,
   success: false
@@ -22,7 +22,7 @@ const menus = (state = initialState, action) => {
         params: action.params
       }
     case 'GET_MENU':
-      return { ...state, selectedMenu: action.selectedMenu }
+      return { ...state, selected: action.selected }
     case 'ADD_MENU':
       return { ...state }
     case 'DELETE_MENU':

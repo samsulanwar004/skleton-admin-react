@@ -52,7 +52,7 @@ export const getMenu = menu => {
   return async dispatch => {
     dispatch({
       type: 'GET_MENU',
-      selectedMenu: menu
+      selected: menu
     })
   }
 }

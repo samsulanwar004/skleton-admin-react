@@ -119,10 +119,10 @@ const MenuSave = () => {
   }, [])
 
   useEffect(() => {
-    if (store.selectedMenu !== null && store.selectedMenu !== undefined) {
+    if (store.selected !== null && store.selected !== undefined) {
       setSelectedIcon({
-        label: store.selectedMenu.menu_icon,
-        value: store.selectedMenu.menu_icon
+        label: store.selected.menu_icon,
+        value: store.selected.menu_icon
       })
     }
 
@@ -150,7 +150,7 @@ const MenuSave = () => {
     }
   }
 
-  return store.selectedMenu !== null && store.selectedMenu !== undefined ? (
+  return store.selected !== null && store.selected !== undefined ? (
     <Row className='app-user-edit'>
       <Col sm='12'>
         <Card>
@@ -206,7 +206,7 @@ const MenuSave = () => {
                       id='menu_name'
                       name='menu_name'
                       placeholder={intl.formatMessage({id: 'Name'})}
-                      defaultValue={store.selectedMenu.menu_name}
+                      defaultValue={store.selected.menu_name}
                       innerRef={register({ required: true })}
                       className={classnames({
                         'is-invalid': errors.menu_name
@@ -225,7 +225,7 @@ const MenuSave = () => {
                       className={classnames({
                         'is-invalid': errors.module_name
                       })}
-                      defaultValue={store.selectedMenu.module_name}
+                      defaultValue={store.selected.module_name}
                     />
                   </FormGroup>
                 </Col>
@@ -238,7 +238,7 @@ const MenuSave = () => {
                       type='number'
                       placeholder={'Seq Number'}
                       innerRef={register({ required: false })}
-                      defaultValue={store.selectedMenu.seq_number}
+                      defaultValue={store.selected.seq_number}
                     />
                   </FormGroup>
                 </Col>
@@ -283,8 +283,7 @@ const MenuSave = () => {
                       name='status'
                       id='status'
                       control={control}
-                      defaultValue={store.selectedMenu.status}
-                      invalid={data !== null && (data.status === undefined || data.status === null)}
+                      defaultValue={store.selected.status}
                     >
                       <option value='A'>Active</option>
                       <option value='D'>Deactive</option>
@@ -439,7 +438,6 @@ const MenuSave = () => {
                       id='status'
                       control={control}
                       defaultValue={'A'}
-                      invalid={data !== null && (data.status === undefined || data.status === null)}
                     >
                       <option value='A'>Active</option>
                       <option value='D'>Deactive</option>

@@ -7,7 +7,7 @@ import { store } from '@store/storeConfig/store'
 
 // ** Third Party Components
 import { Badge, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
-import { Slack, User, Settings, Database, Menu, MoreVertical, FileText, Trash2, Archive } from 'react-feather'
+import * as Feather from 'react-feather'
 import { FormattedMessage } from 'react-intl'
 
 import Swal from 'sweetalert2'
@@ -37,9 +37,11 @@ const handleDelete = (row) => {
 // ** Renders Menu Columns
 const renderMenu = row => {
 
+  const Icon = row.menu_icon ? Feather[row.menu_icon] : Feather['Circle']
+
   return (
     <span className='text-truncate align-middle'>
-      <Menu size={18} className={`text-primary mr-50`} />
+      <Icon size={18} className={`text-primary mr-50`} />
       {row.menu_name}
     </span>
   )
@@ -65,7 +67,7 @@ export const columns = (number) => {
       cell: row => (
         <UncontrolledDropdown>
           <DropdownToggle tag='div' className='btn btn-sm'>
-            <MoreVertical size={14} className='cursor-pointer' />
+            <Feather.MoreVertical size={14} className='cursor-pointer' />
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem
@@ -74,11 +76,11 @@ export const columns = (number) => {
               className='w-100'
               onClick={() => store.dispatch(getMenu(row))}
             >
-              <Archive size={14} className='mr-50' />
+              <Feather.Archive size={14} className='mr-50' />
               <span className='align-middle'>Edit</span>
             </DropdownItem>
             <DropdownItem className='w-100' onClick={() => handleDelete(row)}>
-              <Trash2 size={14} className='mr-50' />
+              <Feather.Trash2 size={14} className='mr-50' />
               <span className='align-middle'><FormattedMessage id='Delete'/></span>
             </DropdownItem>
           </DropdownMenu>
