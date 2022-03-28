@@ -4,10 +4,15 @@ import axios from 'axios'
 export const getAllDataRoleMenu = () => {
   return async dispatch => {
     await axios.get(`${process.env.REACT_APP_BASE_URL}/api/app/role-menu/all-data`).then(response => {
-      dispatch({
-        type: 'GET_ALL_DATA_ROLE_MENU',
-        data: response.data
-      })
+
+      const {data} = response
+
+      if (data.status) {
+        dispatch({
+          type: 'GET_ALL_DATA_ROLE_MENU',
+          data: data.data
+        })
+      }
     })
   }
 }

@@ -4,10 +4,14 @@ import axios from 'axios'
 export const getAllData = () => {
   return async dispatch => {
     await axios.get(`${process.env.REACT_APP_BASE_URL}/api/app/resource/all-data`).then(response => {
-      dispatch({
-        type: 'GET_ALL_DATA',
-        data: response.data
-      })
+      const {data} = response
+
+      if (data.status) {
+        dispatch({
+          type: 'GET_ALL_DATA',
+          data: data.data
+        })
+      }
     })
   }
 }
